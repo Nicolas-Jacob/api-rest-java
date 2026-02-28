@@ -1,6 +1,7 @@
 package service;
 
 import model.Produto;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import repository.ProdutoRepository;
 import org.springframework.stereotype.Service;
@@ -15,7 +16,9 @@ public class ProdutoService {
     private ProdutoRepository produtoRepository;
 
     //CRUD
-    public Produto create(Produto produto) {
+    public Produto create(Produto produtoRequest) {
+        Produto produto = new Produto();
+        BeanUtils.copyProperties(produtoRequest, produto);
         return produtoRepository.save(produto);
     }
 

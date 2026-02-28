@@ -1,5 +1,6 @@
 package Controller;
 
+import jakarta.validation.Valid;
 import model.Produto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -20,7 +21,7 @@ public class ProdutoController {
     // POST - GET - PUT - DELETE
 
     @PostMapping
-    public ResponseEntity<Produto> createProduto(@RequestBody Produto produto) {
+    public ResponseEntity<Produto> createProduto(@Valid @RequestBody Produto produto) {
         Produto produtoSalvo = produtoService.create(produto);
         return new ResponseEntity<>(produtoSalvo, HttpStatus.CREATED);
     }

@@ -1,6 +1,7 @@
 package model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -13,11 +14,11 @@ public class Produto {
     @GeneratedValue(strategy = GenerationType.UUID)
     @Column(name = "id")
     private UUID id;
-    @Column(name = "nome")
+    @Column(name = "nome_produto")
     private String nome;
-    @Column(name = "preco")
+    @Column(name = "preco_produto")
     private BigDecimal preco;
-    @Column(name = "expiracao")
+    @Column(name = "data_validade")
     private LocalDate expiracao;
 
     public Produto() {
